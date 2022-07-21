@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love</title>
+
+    <style>
+        div {
+            width: 100px; height: 50px;
+            margin: 100px auto 0;
+        }
+
+        .n-btn {
+            position: absolute;
+            width: 55px; height: 21px;
+        }
+        #center{
+            position: absolute;
+            margin-left: 200px;
+            margin-top: -20px;
+        }
+        .hinh_trai_tim {
+            position: relative;
+            animation: heart 1s ease infinite
+        }
+        .hinh_trai_tim:before,.hinh_trai_tim:after {
+            content: "";
+            width: 70px;
+            height: 115px;
+            position: absolute;
+            background: red;
+            left: 70px;
+            top: 0;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+
+         }
+        .hinh_trai_tim:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes heart {
+            96% {
+                transform: translate(-20%,-50%) scale(.8,.8)
+            }
+            100% {
+                transform: translate(-20%,-50%) scale(1,1)
+            }
+        }
+        body {       
+            background-image: url("https://dattienvo.github.io/Love/Video/1.png");
+            background-repeat: no-repeat;             
+        }
+
+    
+    </style>
+
+      
+
+    <script>
+
+        var brwsWidth, brwsHeight
+        var btnWidth = 55, btnHeight = 21
+        
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function getBrwsSize() {
+            brwsWidth  = window.innerWidth - btnWidth
+            brwsHeight = window.innerHeight - btnHeight
+        }
+
+        function changePos() {
+            getBrwsSize()
+            let randWidth  = Math.round( randomInRange(0, brwsWidth) )
+            let randHeight = Math.round( randomInRange(0, brwsHeight) )
+            
+            let btn = document.querySelector('.n-btn')
+            
+            btn.style.top  = randHeight + "px"
+            btn.style.left = randWidth  + "px"
+        }
+
+        function displayYes() {
+            alert('Vậy là đồng ý làm người yêu của anh rồi nhé 💑 ')
+        }
+
+    </script>
+
+</head>LOVE
+<body>
+    <h1 style="text-align: center;">EM CÓ ĐỒNG Ý LÀM NGƯỜI YÊU CỦA ANH KHÔNG ? 💕  </h1>
+
+    <div>
+        <button onclick="displayYes()" >Có</button>
+        <button onmouseover="changePos()" class="n-btn">Không</button>
+        <div class="hinh_trai_tim"></div>
+    </div>
+    
+    <video id="center" alt="video" width="50%" height="50%" autoplay  >
+        <source src="https://dattienvo.github.io/Love/Video/1.mp4" type="Video/mp4">
+</video>
+
+   
+    
+</body>
+</html>
